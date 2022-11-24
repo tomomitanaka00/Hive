@@ -1,0 +1,9 @@
+create database if not exists d1 comment ‘this is a database’;
+describe database extended d1;
+
+create database if not exists d2 with dbproperties(‘creator’=‘tomomi’, ‘date’=’2022-11-24’);
+describe database extended d2;
+show databases;
+use d1;
+ 
+
