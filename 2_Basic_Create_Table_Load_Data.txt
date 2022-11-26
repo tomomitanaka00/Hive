@@ -1,0 +1,12 @@
+-- Part 1
+create table if not exists table1 (col1 string, col2 array<string>, col3 string, col4 int) row format delimited fields terminated by ‘,’, collection items terminated by ‘:’ lines terminated by ‘\n’ stored as textfile;
+
+-- Part 2
+set hive.metastore.warehouse.dir;
+create table if not exists table1 (col1 string, col2 array<string>, col3 string, col4 int) row format delimited fields terminated by ‘,’, collection items terminated by ‘:’ lines terminated by ‘\n’ stored as textfile location '/user/tomomit/table3';
+
+-- load data
+load data local inpath'home/tomomit/data.txt' into table table1;
+select * from table1;
+    
+

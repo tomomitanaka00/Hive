@@ -1,0 +1,7 @@
+-- how to load a table from a table
+select * from emp_tab;
+create table tab (col1 int, col2 string, col3 string) stored as textfile;
+insert into table tab select col1,col2,col3 from emp_tab;
+select * from tab;
+insert overwrite table tab select col1,col2,col3 from emp_tab where col3='Developer'
+select * from tab;

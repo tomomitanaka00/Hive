@@ -1,0 +1,18 @@
+-- internal table
+create table if not exists table7 (col1 string, col2 array<string>, col3 string, col4 int) row format delimited fields terminated by ',' collection items terminated by ':' lines terminated by ‘\n’ stored as textfile;
+load data local inpath'home/tomomit/files/table1' into table table7;
+select * from table7;
+
+drop table table7;
+select * from table7;
+-- will see "table not found"
+
+-- external table
+create external table if not exists table12 (col1 string, col2 array<string>, col3 string, col4 int) row format delimited fields terminated by ',' collection items terminated by ':' lines terminated by ‘\n’ stored as textfile;
+load data local inpath'home/tomomit/files/table1' into table table12;
+select * from table12;
+drop table table12;
+select * from table12;
+-- only metadata is lost, but the actual data in the HDFS location is present. Because table12 is an external table. 
+
+
