@@ -1,5 +1,11 @@
-select * from emp_tab;
-create table developer_tab (id int, name string, desg string) stored as textfile;
-from emp_tab insert into table developer_tab select col1,col2,col3 where col3='Developer' insert into table manager_tab select col1,col2,col3 where col3='Mgr'
-select * from developer_tab;
-select * from manager_tab;
+
+
+select * from tab;
+desc tab;
+alter table tab add columns (col4 string, col5 int);
+desc tab;
+select * from tab;
+-- move column 1 to after column 3
+alter table tab change col1 col1 int after col3;
+desc tab;
+-- change column names
