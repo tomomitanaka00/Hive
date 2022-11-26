@@ -9,3 +9,12 @@ select * from tab;
 alter table tab change col1 col1 int after col3;
 desc tab;
 -- change column names
+alter table tab change column col2 new_col2 string;
+desc tab;
+-- rename table name
+alter table tab rename to tab1;
+select * from tab1;
+alter table tab1 replace columns (id int, name string);
+select * from tab1;
+desc formatted tab1;
+alter table tab1 set fileformat avro;
